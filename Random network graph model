@@ -1,0 +1,19 @@
+import networkx as nx
+import numpy as np
+import matplotlib.pyplot as plt
+
+n = 100
+k = 5   
+p = 1 
+
+G = nx.watts_strogatz_graph(n, k, p)
+
+adj_matrix = nx.to_numpy_array(G)
+
+print("Adjacency Matrix:")
+print(adj_matrix)
+
+plt.figure(figsize=(6, 6))
+nx.draw(G, with_labels=True, node_color='lightblue', edge_color='gray', node_size=500)
+plt.title(f"Watts-Strogatz Graph (n={n}, k={k}, p={p})")
+plt.show()
